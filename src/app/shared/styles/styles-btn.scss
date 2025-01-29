@@ -1,0 +1,42 @@
+.container-btn-link-page-anterior {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+}
+
+.btn-link-page-anterior {
+    display: flex;
+    width: 140px;
+    height: 40px;
+    background-color: white;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    border-radius: 12px;
+    cursor: pointer;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #d4f4dd;
+    }
+
+    &:active {
+        background-color: #98FF98;
+    }
+
+    &:hover .btn-link-page-anterior-content {
+        color: #f10f0f;
+    }
+
+    &:active .btn-link-page-anterior-content {
+        color: #fff;
+    }
+}
+
+.btn-link-page-anterior-content {
+    color: #424242;
+    font-size: larger;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}

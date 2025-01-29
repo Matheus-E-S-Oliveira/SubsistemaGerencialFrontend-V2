@@ -1,0 +1,10 @@
+// src/styles.scss
+@use '../src/app/shared/styles/styles-btn.scss' as *;
+@use '../src/app/shared/styles/styles-mat-table.scss' as *;
+@use '../src/app/shared/styles/styles-mat-divider.scss' as *;
+@use '../src/app/shared/styles/styles-mat-forms.scss' as *;
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
