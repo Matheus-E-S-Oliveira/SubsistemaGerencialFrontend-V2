@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ClientesContratosRoutingModule } from './clientes-contratos-routing.module';
 import { ConsultarClientesContratosComponent } from './components/consultar-clientes-contratos/consultar-clientes-contratos.component';
+import { AngularMaterialModule } from '../../shared/modules/angular-material.module';
+import { PipeModule } from '../../shared/modules/pipe.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +14,11 @@ import { ConsultarClientesContratosComponent } from './components/consultar-clie
   ],
   imports: [
     CommonModule,
-    ClientesContratosRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    ClientesContratosRoutingModule,
+    AngularMaterialModule,
+    PipeModule
   ]
 })
 export class ClientesContratosModule { }

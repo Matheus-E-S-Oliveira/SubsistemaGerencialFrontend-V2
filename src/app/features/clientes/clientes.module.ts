@@ -10,11 +10,13 @@ import { AngularMaterialModule } from '../../shared/modules/angular-material.mod
 
 import { ConsultarClientesComponent } from './components/consultar-clientes/consultar-clientes.component';
 import { PipeModule } from '../../shared/modules/pipe.module';
+import { ClienteInformacaoComponent } from './components/cliente-informacao/cliente-informacao.component';
 
 
 @NgModule({
   declarations: [
-    ConsultarClientesComponent
+    ConsultarClientesComponent,
+    ClienteInformacaoComponent
   ],
   imports: [
     FormsModule,

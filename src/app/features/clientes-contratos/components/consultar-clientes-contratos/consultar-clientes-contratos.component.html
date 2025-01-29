@@ -1,1 +1,95 @@
-<p>consultar-clientes-contratos works!</p>
+<section class="container-btn-link-page-anterior">
+  <a class="btn-link-page-anterior" [routerLink]="['/home']" matRipple matRippleColor="#f3f3f3">
+    <span class="btn-link-page-anterior-content">Voltar</span>
+  </a>
+</section>
+  <div #containerTabela class="container-tabela">
+    <form [formGroup]="context.formConsulta" class="container-filters">
+      <section class="filters-custom">
+        <mat-form-field appearance="fill">
+          <mat-label>Buscar pelo nome do cliente</mat-label>
+          <input matInput type="text" formControlName="nomeCliente">
+        </mat-form-field>
+      </section>
+      <section class="filters-custom">
+        <mat-form-field appearance="fill">
+          <mat-label>Buscar pelo nome da fazenda</mat-label>
+          <input matInput type="text" formControlName="nomeFazenda">
+        </mat-form-field>
+      </section>
+      <section class="filters">
+        <mat-form-field>
+          <mat-label>Situação da licença</mat-label>
+          <mat-select formControlName="situacao">
+            <mat-option *ngFor="let option of context.Combos.SituacaoContratos.GetOptions" [value]="option.valor">
+              {{option.descricao}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
+    </form>
+
+    <mat-divider class="separador"></mat-divider>
+
+    <table mat-table [dataSource]="Grid.PaginationResult.items" matSort>
+
+      <!-- Colunas da tabela -->
+
+      <ng-container matColumnDef="assinadoPeloPortal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ass. Portal </th>
+        <td mat-cell *matCellDef="let contrato"> {{ contrato.assinadoPeloPortal | assinadoPeloPortal }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nomeCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </th>
+        <td mat-cell *matCellDef="let contrato"> {{contrato.nomeCliente | nullEmptyCheck }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nomeFazenda">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fazenda </th>
+        <td mat-cell *matCellDef="let contrato"> {{contrato.nomeFazenda | nullEmptyCheck }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataInicopagamento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Inicio Pagamento </th>
+        <td mat-cell *matCellDef="let contrato">
+          {{contrato.dataInicopagamento | nullEmptyCheck | date:'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataFimTryal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fim Tryal </th>
+        <td mat-cell *matCellDef="let contrato">
+          {{contrato.dataFimTryal | nullEmptyCheck | date:'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="situacao">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Situação </th>
+        <td mat-cell *matCellDef="let contrato"> {{ contrato.situacao | situacaoContrato }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="codigoContrato">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cod. Contrato </th>
+        <td mat-cell *matCellDef="let contrato"> {{contrato.codigoContrato | nullEmptyCheck }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="codigoObjetoFazenda">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cod. Objeto Fazenda </th>
+        <td mat-cell *matCellDef="let contrato"> {{contrato.codigoObjetoFazenda | nullEmptyCheck }} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <div class="tabela-vazia" *ngIf="!Grid.PaginationResult.items || Grid.PaginationResult.items.length == 0">
+      <p class="msg-tabela-vazia">Sem resultados para a consulta...</p>
+    </div>
+
+    <mat-paginator [length]="Grid.PaginationResult.totalElements" [pageSize]="Grid.PaginationResult.pageSize"
+      [pageIndex]="Grid.PaginationResult.pageNumber - 1" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+      [showFirstLastButtons]="true" (page)="getClienteContrato($event)">
+    </mat-paginator>
+
+  </div>

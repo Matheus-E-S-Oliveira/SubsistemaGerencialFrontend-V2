@@ -35,4 +35,18 @@ export interface FazendaDto {
     nome: string;
     dataCriacaoFazenda: Date;
     quantidadeAnimais: number;
-  }
+}
+
+export interface ClienteContratoDto {
+    id: string;
+    clienteId: string;
+    fazendaId: string;
+    nomeCliente: string;
+    nomeFazenda: string;
+    codigoContrato: string;
+    dataInicopagamento: Date;
+    dataFimTryal: Date;
+    assinadoPeloPortal: boolean;
+    situacao: number;
+    codigoObjetoFazenda: string;
+}

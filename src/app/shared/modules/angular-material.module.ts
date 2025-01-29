@@ -13,6 +13,7 @@ import { provideNgxMask } from 'ngx-mask';
 
 import localePt from '@angular/common/locales/pt'; 
 import localePtExtra from '@angular/common/locales/extra/pt'; 
+import { MatSelectModule } from '@angular/material/select';
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
@@ -27,6 +28,7 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatDividerModule,
     MatPaginatorModule,
     MatInputModule,
+    MatSelectModule,
   ],
   exports: [
     MatIconModule,
@@ -36,6 +38,7 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatDividerModule,
     MatPaginatorModule,
     MatInputModule,
+    MatSelectModule
   ],
   providers: [
     provideNgxMask(),
