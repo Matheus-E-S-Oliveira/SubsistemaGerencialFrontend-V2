@@ -1,0 +1,167 @@
+.container-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px
+}
+
+.container-dados {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 0px 0px 15px 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+    color: #424242;
+    border-bottom: 4px solid #F3F3F3;
+    padding: 10px;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.campo {
+    display: flex;
+}
+
+.classe-aplicada {
+    border-radius: 0;
+}
+
+.campo-content {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    margin: 0;
+    gap: 5px;
+}
+
+.campo-label {
+    color: #4a3c3c;
+    width: 100%;
+}
+
+.icons-warning {
+    vertical-align: middle;
+    margin-left: 5px;
+    color: #d9534f;
+    border: none;
+    display: flex;
+    width: 24px;
+}
+
+.dados-cliente {
+    width: auto;
+    color: rgb(53 51 51);
+    font-weight: normal;
+    font-size: 17px;
+    border-bottom: none;
+    padding: 0;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    display: flex;
+}
+
+
+
+
+.container-title-carrocel {
+    background-color: #fff;
+    border-radius: 15px 15px 0 0;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-wrapper {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.carousel-items {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.container-dados {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.carousel-button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-button:focus {
+    outline: none;
+}
+
+.container-btn-carrocel {
+    border-top: 4px solid #f3f3f3;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    justify-content: flex-end;
+    gap: 10px;
+    background-color: #fff;
+    border-radius: 0px 0px 15px 15px;
+
+}
+
+.paginator-text {
+    width: auto;
+    border-bottom: none;
+    color: #424242;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.icon {
+    color: #424242;
+    width: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.disabled-button {
+    pointer-events: none;
+    opacity: 0.5;
+}

@@ -6,6 +6,16 @@ export interface ClienteDto {
     email: string;
     telefone: string;
 }
+export interface ClienteComEnderecoDto {
+    id: string;
+    nome: string;
+    cpf: string;
+    situacao: number;
+    email: string;
+    telefone: string;
+    enderecos: EnderecoClienteDto[];
+    fazendas: FazendaDto[];
+}
 export interface EnderecoClienteDto {
     enderecoId: string;
     uf: string;
@@ -17,16 +27,6 @@ export interface EnderecoClienteDto {
     complemento: string;
 }
 
-export interface ClienteComEnderecoDto {
-    id: string;
-    nome: string;
-    cpf: string;
-    situacao: number;
-    email: string;
-    telefone: string;
-    enderecos: EnderecoClienteDto[];
-    fazendas: FazendaDto[];
-}
 
 export interface FazendaDto {
     id: string;
@@ -50,3 +50,5 @@ export interface ClienteContratoDto {
     situacao: number;
     codigoObjetoFazenda: string;
 }
+
+

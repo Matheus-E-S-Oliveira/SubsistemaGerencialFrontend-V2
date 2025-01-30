@@ -53,7 +53,7 @@
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef> Ações </th>
       <td mat-cell *matCellDef="let cliente">
-        <a class="link-table-item" routerLink='/home/detalhes/teste/{{cliente.id}}'>
+        <a class="link-table-item" routerLink='detalhes/{{cliente.id}}'>
           <mat-icon class="link-table-icon">open_in_new</mat-icon>
         </a>
       </td>

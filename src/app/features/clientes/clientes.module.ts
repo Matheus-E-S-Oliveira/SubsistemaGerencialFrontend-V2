@@ -11,6 +11,7 @@ import { AngularMaterialModule } from '../../shared/modules/angular-material.mod
 import { ConsultarClientesComponent } from './components/consultar-clientes/consultar-clientes.component';
 import { PipeModule } from '../../shared/modules/pipe.module';
 import { ClienteInformacaoComponent } from './components/cliente-informacao/cliente-informacao.component';
+import { ModelComponentsModule } from "../../shared/models/views/model-components.module";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ClienteInformacaoComponent } from './components/cliente-informacao/clie
     AngularMaterialModule,
     ClientesRoutingModule,
     NgxMaskDirective,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModelComponentsModule
 ]
 })
 export class ClientesModule { }

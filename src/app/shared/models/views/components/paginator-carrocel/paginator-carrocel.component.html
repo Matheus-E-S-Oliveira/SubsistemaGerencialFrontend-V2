@@ -1,0 +1,11 @@
+<div class="container-btn-carrocel" *ngIf="item > 1">
+    <span class="paginator-text">{{currentIndex + 1}} de {{item}} {{title}}</span>
+    <button class="carousel-button prev-button" (click)="moveCarousel(-1)" [disabled]="currentIndex === 0"
+        [class.disabled-button]="currentIndex === 0">
+        <mat-icon class="icon">arrow_back_ios</mat-icon>
+    </button>
+    <button class="carousel-button next-button" (click)="moveCarousel(1)" [disabled]="currentIndex === item -1"
+        [class.disabled-button]="currentIndex === item -1">
+        <mat-icon class="icon">arrow_forward_ios</mat-icon>
+    </button>
+</div>

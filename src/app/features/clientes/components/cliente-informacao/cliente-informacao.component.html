@@ -1,1 +1,200 @@
-<p>cliente-informacao works!</p>
+<section class="container-btn-link-page-anterior">
+    <a class="btn-link-page-anterior" [routerLink]="['/clientes']" matRipple matRippleColor="#f3f3f3">
+        <span class="btn-link-page-anterior-content">Voltar</span>
+    </a>
+</section>
+<section *ngFor="let item of Grid.PaginationResult.items" class="container-page">
+    <section class="container-dados" style="border-radius: 15px; padding-top: 0;">
+        <span class="title">Dados do cliente:</span>
+        <div class="container">
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Nome do cliente:</strong>
+                    <span *ngIf="!item.nome" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{item.nome | nullEmptyCheck }}</span>
+                </p>
+            </div>
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">CPF do cliente:</strong>
+                    <span *ngIf="!item.cpf" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{ item.cpf | nullEmptyCheck | cpfFormat}}</span>
+                </p>
+            </div>
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Situação do cliente:</strong>
+                    <span *ngIf="!item.situacao" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{ item.situacao | situacaoCliente}}</span>
+                </p>
+            </div>
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Email do cliente:</strong>
+                    <span *ngIf="!item.email" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{item.email | nullEmptyCheck }}</span>
+                </p>
+            </div>
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Telefone do cliente:</strong>
+                    <span *ngIf="!item.telefone" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{item.telefone | nullEmptyCheck}}</span>
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <section style="box-sizing: border-box; width: 100%;">
+        <div class="container-title-carrocel">
+            <span class="title">Endereço:</span>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-items" #carouselItemsEnderecos>
+                    <section class="container-dados" *ngFor="let endereco of item.enderecos"
+                    [ngClass]="{'classe-aplicada': item.enderecos.length > 1}" >
+                        <div class="container">
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">UF do cliente:</strong>
+                                    <span *ngIf="!endereco.uf" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.uf | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Cidade do cliente:</strong>
+                                    <span *ngIf="!endereco.cidade" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.cidade | nullEmptyCheck }}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">CEP do cliente:</strong>
+                                    <span *ngIf="!endereco.cep" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{ endereco.cep | nullEmptyCheck | formatarCep}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Rua do cliente:</strong>
+                                    <span *ngIf="!endereco.rua" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.rua | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Bairro do cliente:</strong>
+                                    <span *ngIf="!endereco.bairro" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.bairro | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Numero do cliente:</strong>
+                                    <span *ngIf="!endereco.numero" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.numero | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Complemento do cliente:</strong>
+                                    <span *ngIf="!endereco.complemento" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.complemento | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="container-paginator">
+            <app-paginator-carrocel [carouselItems]="carouselItemsEnderecos" [item]="item.enderecos.length"
+                title="Endereço">
+            </app-paginator-carrocel>
+        </div>
+    </section>
+    <section style="box-sizing: border-box; width: 100%;">
+        <div class="container-title-carrocel">
+            <span class="title">Fazenda:</span>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-items" #carouselItemsFazendas>
+                    <section class="container-dados" *ngFor="let fazenda of item.fazendas"
+                     [ngClass]="{'classe-aplicada': item.fazendas.length > 1}">
+                        <div class="container">
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Código da fazenda:</strong>
+                                    <span *ngIf="!fazenda.codigoFazenda" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{fazenda.codigoFazenda | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Nome da fazenda:</strong>
+                                    <span *ngIf="!fazenda.nome" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{fazenda.nome | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Data da criação da fazenda:</strong>
+                                    <span *ngIf="!fazenda.dataCriacaoFazenda" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{fazenda.dataCriacaoFazenda | nullEmptyCheck |
+                                        date:'dd/MM/yyyy'}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Quantida de animais:</strong>
+                                    <span *ngIf="!fazenda.quantidadeAnimais" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{fazenda.quantidadeAnimais | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="container-paginator">
+            <app-paginator-carrocel [carouselItems]="carouselItemsFazendas" [item]="item.fazendas.length"
+                title="Fazendas">
+            </app-paginator-carrocel>
+        </div>
+    </section>
+</section>

@@ -29,6 +29,24 @@ export class BaseApiService {
         }
         return this.http.get<PaginationResult<T>>(url, { params });
     }
+    getById<T>(id: string, endpoint: string, pageNumber: number = 1, pageSize: number = 10, filters?: { [key: string]: any }
+    ): Observable<PaginationResult<T>> {
+
+        const url = `${this.apiUrl}${endpoint}/${id}`;
+
+        let params = new HttpParams()
+            .set('pageNumber', pageNumber.toString())
+            .set('pageSize', pageSize.toString());
+
+        if (filters) {
+            Object.keys(filters).forEach(key => {
+                if (filters[key] !== undefined && filters[key] !== null) {
+                    params = params.set(key, filters[key]);
+                }
+            });
+        }
+        return this.http.get<PaginationResult<T>>(url, { params });
+    }
 
     // Método para criar um registro
     post<T>(endpoint: string, body: any): Observable<T> {
