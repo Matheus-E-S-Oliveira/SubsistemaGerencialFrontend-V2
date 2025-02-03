@@ -4,16 +4,18 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 
 import { provideNgxMask } from 'ngx-mask';
+import { BaseChartDirective } from 'ng2-charts';
+import { ChartModule } from 'primeng/chart';
 
 import localePt from '@angular/common/locales/pt'; 
 import localePtExtra from '@angular/common/locales/extra/pt'; 
-import { MatSelectModule } from '@angular/material/select';
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
@@ -29,6 +31,8 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatPaginatorModule,
     MatInputModule,
     MatSelectModule,
+    BaseChartDirective,
+    ChartModule
   ],
   exports: [
     MatIconModule,
@@ -38,7 +42,9 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatDividerModule,
     MatPaginatorModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    BaseChartDirective,
+    ChartModule
   ],
   providers: [
     provideNgxMask(),

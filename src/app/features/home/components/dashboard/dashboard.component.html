@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <app-kpis></app-kpis>
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px; flex-grow: 1;">
+        <div>
+            <app-grafico-situacao-cliente></app-grafico-situacao-cliente>
+        </div>
+        <div>
+            <app-grafico-finaceiro></app-grafico-finaceiro>
+        </div>
+        <div>
+            <app-grafico-situacao-cliente></app-grafico-situacao-cliente>
+        </div>
+        <div>
+            <app-grafico-finaceiro></app-grafico-finaceiro>
+        </div>
+        <div>
+            <app-grafico-situacao-cliente></app-grafico-situacao-cliente>
+        </div>
+        <div>
+            <app-grafico-finaceiro></app-grafico-finaceiro>
+        </div>
+    </div>
+    <app-cards></app-cards>
+</div>

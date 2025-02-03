@@ -7,12 +7,18 @@ import { AngularMaterialModule } from '../../modules/angular-material.module';
 import { NgPipesModule } from 'ngx-pipes'
 
 import { PaginatorCarrocelComponent } from './components/paginator-carrocel/paginator-carrocel.component';
+import { CardComponent } from './components/card/card.component';
+import { KpisMenoresComponent } from './components/kpis-menores/kpis-menores.component';
+import { KpisMaioresComponent } from './components/kpis-maiores/kpis-maiores.component';
 
 
 
 @NgModule({
   declarations: [
     PaginatorCarrocelComponent,
+    CardComponent,
+    KpisMenoresComponent,
+    KpisMaioresComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +27,10 @@ import { PaginatorCarrocelComponent } from './components/paginator-carrocel/pagi
     NgPipesModule
   ],
   exports: [
-    PaginatorCarrocelComponent
+    PaginatorCarrocelComponent,
+    CardComponent,
+    KpisMenoresComponent,
+    KpisMaioresComponent
   ]
 })
 export class ModelComponentsModule { }

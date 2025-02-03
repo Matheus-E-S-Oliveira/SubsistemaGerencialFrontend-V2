@@ -4,7 +4,25 @@
 @use '../src/app/shared/styles/styles-mat-divider.scss' as *;
 @use '../src/app/shared/styles/styles-mat-forms.scss' as *;
 @use '../src/app//shared//styles/styles-carrocel.scss' as *;
+@use '../src/app/shared/styles/styles-cards.scss' as *;
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-dashboard{
+    box-sizing: border-box;
+}
+app-cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-grow: 1;
+}
+app-card{
+    display: flex;
+    padding: 5px;
+}
+app-kpis, app-kpis-menores, app-kpis-maiores, app-grafico-finaceiro{
+    flex-grow: 1;
+    display: flex;
+}

@@ -7,10 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './shared/layout/layout.module';
 
 import { AppComponent } from './app.component';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { BarController, Colors, Legend } from 'chart.js';
 
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -19,11 +22,13 @@ import { AppComponent } from './app.component';
   ],
   exports: [],
   providers: [
+    provideCharts(withDefaultRegisterables()),
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
     provideHttpClient(
       withFetch(),
     ),
+    provideCharts({ registerables: [BarController, Legend, Colors] })
   ],
   bootstrap: [AppComponent]
 })
