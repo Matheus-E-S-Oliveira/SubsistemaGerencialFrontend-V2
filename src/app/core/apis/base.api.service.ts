@@ -11,6 +11,12 @@ export class BaseApiService {
 
     constructor(private http: HttpClient) { }
 
+    get<T>(endpoint: string): Observable<T> {
+        const url = `${this.apiUrl}${endpoint}`;
+        return this.http.get<T>(url);
+      }
+      
+
     getList<T>(endpoint: string, pageNumber: number = 1, pageSize: number = 10, filters?: { [key: string]: any }
     ): Observable<PaginationResult<T>> {
 

@@ -10,6 +10,10 @@ import { GraficoFinaceiroComponent } from './components/grafico-finaceiro/grafic
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartModule } from 'primeng/chart';
 import { GraficoSituacaoClienteComponent } from './components/grafico-situacao-cliente/grafico-situacao-cliente.component';
+import { GraficoDistrubuicaoClientePlanosComponent } from './components/grafico-distrubuicao-cliente-planos/grafico-distrubuicao-cliente-planos.component';
+import { GraficoDistrubuicaoPlanosAnualmenteComponent } from './components/grafico-distrubuicao-planos-anualmente/grafico-distrubuicao-planos-anualmente.component';
+import { GraficoDistrubuicaoClientesFormaPagamentoComponent } from './components/grafico-distrubuicao-clientes-forma-pagamento/grafico-distrubuicao-clientes-forma-pagamento.component';
+import { GraficoDistrubuicaoPlanosMensalmenteComponent } from './components/grafico-distrubuicao-planos-mensalmente/grafico-distrubuicao-planos-mensalmente.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { GraficoSituacaoClienteComponent } from './components/grafico-situacao-c
     CardsComponent,
     KpisComponent,
     GraficoFinaceiroComponent,
-    GraficoSituacaoClienteComponent
+    GraficoSituacaoClienteComponent,
+    GraficoDistrubuicaoClientePlanosComponent,
+    GraficoDistrubuicaoPlanosAnualmenteComponent,
+    GraficoDistrubuicaoClientesFormaPagamentoComponent,
+    GraficoDistrubuicaoPlanosMensalmenteComponent
   ],
   imports: [
     CommonModule,

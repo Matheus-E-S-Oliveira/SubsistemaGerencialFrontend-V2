@@ -8,6 +8,7 @@ import { AssinadoPeloPortalPipe } from "../pipes/assinado-pelo-portal.pipe";
 import { SituacaoContratoPipes } from "../pipes/situacao-contrato.pipe";
 import { FormatacaoCepPipe } from "../pipes/formatar-cep.pipe";
 import { DynamicPipe } from "../pipes/dynamic.pipe";
+import { CurrencyNumberPipe } from "../pipes/currency-number.pipe";
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { DynamicPipe } from "../pipes/dynamic.pipe";
         AssinadoPeloPortalPipe,
         SituacaoContratoPipes,
         FormatacaoCepPipe,
-        DynamicPipe
+        DynamicPipe,
+        CurrencyNumberPipe
     ],
     imports: [
         CommonModule
@@ -29,15 +31,9 @@ import { DynamicPipe } from "../pipes/dynamic.pipe";
         AssinadoPeloPortalPipe,
         SituacaoContratoPipes,
         FormatacaoCepPipe,
-        DynamicPipe
-    ],
-    providers: [
-        CpfFormatPipe,
-        NullEmptyCheckPipe,
-        SituacaoClientePipe,
-        AssinadoPeloPortalPipe,
-        SituacaoContratoPipes,
-        FormatacaoCepPipe
+        DynamicPipe,
+        CurrencyNumberPipe
+        
     ]
 })
 export class PipeModule { }

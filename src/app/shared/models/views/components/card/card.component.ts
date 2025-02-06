@@ -9,5 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
 @Input() title!: string;
-@Input() number!: number; 
+@Input() number!: number | null | string; 
+@Input() customClass: string = 'card-content';
 }

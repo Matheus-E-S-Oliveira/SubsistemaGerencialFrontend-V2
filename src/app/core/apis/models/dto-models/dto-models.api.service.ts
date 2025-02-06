@@ -52,3 +52,36 @@ export interface ClienteContratoDto {
 }
 
 
+export interface DadosGerais {
+    valoresAReceberPorMes: Record<string, number>;
+    licencasCompradasPorMes: Record<string, Record<number, number>>;
+    receitaPorMes: Record<string, number>;
+    valoresAReceberAcumulado: Record<string, number>;
+    receitaAcumulada: Record<string, number>;
+}
+
+export interface LicencasStatus {
+    licencaIndefinido: number;
+    licencaAtiva: number;
+    licencaExpirado: number;
+    licencaSuspenco: number;
+}
+
+export interface DistribuicaoPorPlanos {
+    planoIndefinido: number,
+    planoMensal: number,
+    planoAnual: number,
+    planoGratuito: number,
+    planoTeste: number
+}
+export interface DistrbuicaoDePlanosAnual {
+    licencasPorAno: Record<string, Record<number, number>>;
+}
+
+export interface DistribuicaoClinetesPorFormaPagamento {
+  formaPagamentoIndefinido: number;
+  formaPagamentoDinheiro: number;
+  formaPagamentoCartaoCredito: number;
+  formaPagamentoPix: number;
+  formaPagamentoBoleto: number;
+}

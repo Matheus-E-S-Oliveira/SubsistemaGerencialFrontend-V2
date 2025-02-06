@@ -1,9 +1,13 @@
-<app-card title="Licenças Ativas:" [number]="10" ></app-card>
-<app-card title="Licenças Expiradas:" [number]="10" ></app-card>
-<app-card title="Total de Licenças:" [number]="20" ></app-card>
+<app-card title="Licenças Ativas:" [number]="ativos" ></app-card>
+<app-card title="Licenças Expiradas:" [number]="expirados" ></app-card>
+<app-card title="Total de Licenças:" [number]="total" ></app-card>
 <app-card title="Licenças Compradas Em 2025:" [number]="10" ></app-card>
-<app-card title="Valor Recebido Rste Mês:" [number]="10" ></app-card>
-<app-card title="Valores à Receber:" [number]="10" ></app-card>
+<app-card title="Total Recebido no Mês" 
+[number]="receitaUltimoMes | currency:'BRL':'symbol':'1.2-2'" 
+customClass="card-content-custom"></app-card>
+<app-card title="Pendências do Último Mês:" 
+[number]="dividaPenultimoMes | currency:'BRL':'symbol':'1.2-2'" 
+customClass="card-content-custom"></app-card>
 <app-card title="Boletos Emitidos Este Mês:" [number]="10" ></app-card>
 <app-card title="Licenças Perto do Vencimento:" [number]="10" ></app-card>
 <!-- <app-card title="Licenças Expiradas:" [number]="10" ></app-card> -->

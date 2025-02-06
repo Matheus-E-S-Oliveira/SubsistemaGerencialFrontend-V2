@@ -1,10 +1,10 @@
 <section class="Kpis">
     <div class="kpis-menores">
         <app-kpis-menores title="Clientes Ativos:" [number]="10"></app-kpis-menores>
-        <app-kpis-menores title="Licenças Ativas:" [number]="0"></app-kpis-menores>
+        <app-kpis-menores title="Licenças Ativas:" [number]="dados"></app-kpis-menores>
     </div>
     <div class="kpis-maiores">
-        <app-kpis-maiores title="Receita Acumulada em 2025:" [number]="0" cor="#27AE60"></app-kpis-maiores>
-        <app-kpis-maiores title="Dívida Acumulada:" [number]="1234850" cor="#E74C3C"></app-kpis-maiores>
+        <app-kpis-maiores title="Receita Acumulada em 12 Meses:" [number]="receitaAcumulada" cor="#27AE60"></app-kpis-maiores>
+        <app-kpis-maiores title="Dívida Acumulada em 12 Meses:" [number]="lastValue" cor="#E74C3C"></app-kpis-maiores>
     </div>
 </section>
