@@ -88,9 +88,37 @@ export class GraficoFinaceiroComponent {
         plugins: {
           legend: {
             labels: {
+              filter: function(item: any, chart: any) {
+                return true;
+              },
               color: textColor
+            },
+            onHover: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: { chart: any; }) {
+              const chart = legend.chart;
+              const tooltip = chart.tooltip;
+      
+              if (legendItem) {
+                event.native.target.style.cursor = 'pointer';
+              }
+            },
+            onLeave: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: any) {
+              event.native.target.style.cursor = 'default';
             }
-          }
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context: { dataset: any; raw: any; }) {
+                let value = context.raw;
+                let formattedValue = value.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL'
+                });
+                
+                // Pega o label do dataset, que foi definido dentro de 'datasets' (e.g., 'Recebido')
+                return context.dataset.label + ': ' + formattedValue;
+              }
+            }
+          }          
         },
         scales: {
           x: {

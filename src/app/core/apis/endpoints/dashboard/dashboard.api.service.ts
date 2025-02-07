@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BaseApiService } from "../../base.api.service";
-import { ClienteContratoDto, DadosGerais, DistribuicaoClinetesPorFormaPagamento } from "../../models/dto-models/dto-models.api.service";
+import { Clientes, Contrato, DadosDiversos, DadosGerais, DistribuicaoClinetesPorFormaPagamento } from "../../models/dto-models/dto-models.api.service";
 import { Observable } from "rxjs";
-import { PaginationResult } from "../../models/response-models/response-models.api.service";
 
 @Injectable({
     providedIn: 'root'
@@ -17,5 +16,17 @@ export class DashboardApiService extends BaseApiService {
 
     getDistribuicaoFP(): Observable<DistribuicaoClinetesPorFormaPagamento> {
         return this.get<DistribuicaoClinetesPorFormaPagamento>('dashboard/pagamentos');
+    }
+
+    getDadosDiversos(): Observable<DadosDiversos> {
+        return this.get<DadosDiversos>('dashboard/gerais');
+    }
+
+    getClientes(): Observable<Clientes> {
+        return this.get<Clientes>('dashboard/clientes');
+    }
+
+    getContrato(): Observable<Contrato> {
+        return this.get<Contrato>('dashboard/contrato')
     }
 }

@@ -1,0 +1,21 @@
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex-grow: 1;">
+        <div class="container-painel">
+            <span class="title">📌 Ranking de Formas de Pagamento</span>
+            <ul>
+                <li *ngFor="let item of dados; let i = index">
+                    {{ i + 1 }}° {{ item.tipo }}: {{ item.valor }}
+                </li>
+            </ul>
+        </div>
+        <div class="container-painel">
+            <span class="title">📌 Ranking de Planos Assinados</span>
+            <ul>
+                <li *ngFor="let plano of planos; let i = index">
+                    {{ i + 1 }}° {{ plano.tipo }}: {{ plano.valor }}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,8 +15,8 @@ import { provideNgxMask } from 'ngx-mask';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartModule } from 'primeng/chart';
 
-import localePt from '@angular/common/locales/pt'; 
-import localePtExtra from '@angular/common/locales/extra/pt'; 
+import localePt from '@angular/common/locales/pt';
+import localePtExtra from '@angular/common/locales/extra/pt';
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
@@ -32,7 +33,8 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatInputModule,
     MatSelectModule,
     BaseChartDirective,
-    ChartModule
+    ChartModule,
+    MatTooltipModule
   ],
   exports: [
     MatIconModule,
@@ -44,7 +46,8 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatInputModule,
     MatSelectModule,
     BaseChartDirective,
-    ChartModule
+    ChartModule,
+    MatTooltipModule
   ],
   providers: [
     provideNgxMask(),
@@ -62,7 +65,7 @@ export function CustomPaginator() {
   customPaginatorIntl.nextPageLabel = 'Próxima pagina';
   customPaginatorIntl.firstPageLabel = 'Primeira página';
   customPaginatorIntl.lastPageLabel = 'Última página';
-  
+
   customPaginatorIntl.getRangeLabel = (page: number, pageSize: number, length: number) => {
     if (length === 0 || pageSize === 0) {
       return '0 de ' + length;

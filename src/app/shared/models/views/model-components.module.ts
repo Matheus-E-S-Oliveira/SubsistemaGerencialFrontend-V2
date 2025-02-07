@@ -10,6 +10,7 @@ import { PaginatorCarrocelComponent } from './components/paginator-carrocel/pagi
 import { CardComponent } from './components/card/card.component';
 import { KpisMenoresComponent } from './components/kpis-menores/kpis-menores.component';
 import { KpisMaioresComponent } from './components/kpis-maiores/kpis-maiores.component';
+import { PainelComponent } from './components/painel/painel.component';
 
 
 
@@ -19,6 +20,7 @@ import { KpisMaioresComponent } from './components/kpis-maiores/kpis-maiores.com
     CardComponent,
     KpisMenoresComponent,
     KpisMaioresComponent,
+    PainelComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { KpisMaioresComponent } from './components/kpis-maiores/kpis-maiores.com
     PaginatorCarrocelComponent,
     CardComponent,
     KpisMenoresComponent,
-    KpisMaioresComponent
+    KpisMaioresComponent,
+    PainelComponent
   ]
 })
 export class ModelComponentsModule { }

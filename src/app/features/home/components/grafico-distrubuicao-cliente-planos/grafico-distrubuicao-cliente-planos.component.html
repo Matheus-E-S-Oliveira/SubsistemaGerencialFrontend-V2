@@ -1,3 +1,8 @@
 <div class="container-grafico">
-    <p-chart type="pie" [data]="data" [options]="options" height="20rem" />
+    <span class="title-custom">Distribuição dos Clientes por Plano
+        <mat-icon class="icon-info"
+            matTooltip="Mostra a distribuição dos clientes pelos planos em que estão, considerando apenas a última atualização de cada cliente."
+            matTooltipShowDelay="500" matTooltipHideDelay="300" matTooltipPosition="above">info</mat-icon>
+    </span>
+    <p-chart type="pie" [data]="data" [options]="options" height="20rem" class="grafico" />
 </div>

@@ -1,0 +1,25 @@
+.container-painel {
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+ul {
+    list-style-type: disclosure-closed;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+li {
+    font-size: 18px;
+    font-weight: bold;
+    color: #505050;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+li:hover {
+    margin-left: 10px;
+}

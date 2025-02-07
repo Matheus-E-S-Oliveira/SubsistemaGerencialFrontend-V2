@@ -1,3 +1,8 @@
 <div class="container-grafico">
+    <span class="title-custom">Receitas e Dívidas Acumuladas nos Últimos 12 Meses
+        <mat-icon class="icon-info"
+            matTooltip="Este gráfico mostra o total recebido e a dívida acumulada de cada mês nos últimos 12 meses, além do valor total acumulado de receita e dívida."
+            matTooltipShowDelay="500" matTooltipHideDelay="300" matTooltipPosition="above">info</mat-icon>
+    </span>
     <p-chart type="line" [data]="data" [options]="options" height="20rem" class="grafico" />
 </div>

@@ -1,6 +1,10 @@
+import { CompradosAnualService } from './../../../../shared/services/comprados-anual.service';
 import { Component } from '@angular/core';
 import { LicencaService } from '../../../../shared/services/licenca.service';
 import { ReceitaService } from '../../../../shared/services/receita.service';
+import { DadosGeraisService } from '../../../../shared/services/dados-gerais.service';
+import { response } from 'express';
+import { ClienteService } from '../../../../shared/services/cliente.service';
 
 @Component({
   selector: 'app-cards',
@@ -10,20 +14,51 @@ import { ReceitaService } from '../../../../shared/services/receita.service';
   styleUrl: './cards.component.scss'
 })
 export class CardsComponent {
-  ativos!: number;
-  expirados!: number;
+  dadosLicenca: any;
   total!: any;
   receitaUltimoMes!: number | null;
   dividaUltimoMes!: number | null;
   dividaPenultimoMes!: number | null;
-  constructor(private licencaService: LicencaService, private receitaService: ReceitaService) { }
+  compradosEsteAno!: number;
+  title = `Licenças Compradas ${new Date().getFullYear()}:`
+  dadoGerais: any;
+  dadosCliente: any;
+  clienteTotal!: number;
+  constructor(private licencaService: LicencaService, private receitaService: ReceitaService,
+    private compradosAnualService: CompradosAnualService, private dadosGeraisSerive: DadosGeraisService,
+    private clienteSerice: ClienteService) { }
 
   ngOnInit() {
+    this.clienteSerice.ClienteData$.subscribe((response) => {
+      if(response){
+        this.dadosCliente = response;
+        this.clienteTotal = [response.clienteAtivos, response.clienteInativos, response.clienteInderteminados].reduce((acc, valor) => acc + valor, 0);
+      }
+    })
+    this.dadosGeraisSerive.DadosGeraisData$.subscribe((response) => {
+      if(response){
+        this.dadoGerais = response;
+      }
+    })
+
     this.licencaService.licencaData$.subscribe((response) => {
       if (response) {
-        this.ativos = response.licencaAtiva;
-        this.expirados = response.licencaExpirado
-        this.total = Object.values(response).reduce((acc: any, valor) => acc + valor, 0);
+        this.dadosLicenca = response;
+        this.total = [response.totalLicencaAtiva, response.totalLicencaExpirado, response.totalLicencaIndefinido,
+          response.totalLicencaSuspenco
+        ].reduce((acc, valor) => acc + valor, 0);
+      }
+    });
+    this.compradosAnualService.AnualData$.subscribe((response) => {
+      if (response && response.licencasPorAno) {
+        const anos = Object.keys(response.licencasPorAno).sort(); // Ordena os anos
+        const ultimoAno = anos[anos.length - 1]; // Pega o último ano
+        const valoresUltimoAno = response.licencasPorAno[ultimoAno]; // Pega os valores desse ano
+        
+        // Soma os valores dentro do último ano
+        this.compradosEsteAno = Object.values(valoresUltimoAno).reduce((acc, valor) => acc + (Number(valor) || 0), 0);
+      } else {
+        this.compradosEsteAno = 0; // Caso response seja inválido
       }
     });
     this.receitaService.receitaData$.subscribe((response) => {

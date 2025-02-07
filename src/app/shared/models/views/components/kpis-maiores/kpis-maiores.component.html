@@ -1,6 +1,7 @@
 <article class="container-card">
-    <div class="card">
-        <p class="card-title">{{title}}</p>
+    <div class="card" matTooltip="{{ tooltipText }}" matTooltipShowDelay="1000" matTooltipHideDelay="300"
+    matTooltipPosition="above">
+        <p class="card-title">{{titulo}}</p>
         <p class="card-content-custom" [ngStyle]="{'color': cor }">{{ number | currency:'BRL':'symbol':'1.2-2' }}</p>
     </div>
 </article>

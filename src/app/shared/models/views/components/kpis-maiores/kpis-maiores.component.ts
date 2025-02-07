@@ -8,9 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrl: './kpis-maiores.component.scss'
 })
 export class KpisMaioresComponent implements OnInit {
-  @Input() title!: string;
+  @Input() titulo!: string;
   @Input() number!: number | null;
   @Input() cor!: string;
+  @Input() tooltipText: string = 'teste';
   
   ngOnInit(): void {
   }

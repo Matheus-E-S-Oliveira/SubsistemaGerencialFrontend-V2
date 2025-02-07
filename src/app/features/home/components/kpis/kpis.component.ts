@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { LicencaService } from '../../../../shared/services/licenca.service';
 import { ReceitaService } from '../../../../shared/services/receita.service';
+import { ClienteService } from '../../../../shared/services/cliente.service';
 
 @Component({
   selector: 'app-kpis',
@@ -15,9 +16,17 @@ export class KpisComponent {
   valoresAReceberAcumulado: any;
   lastValue!: number | null;
   receitaAcumulada!: number | null;
-  constructor(private licencaService: LicencaService, private receitaService: ReceitaService) {}
+  dadosCliente: any;
+  constructor(private licencaService: LicencaService, private receitaService: ReceitaService,
+    private clienteService: ClienteService
+  ) {}
 
   ngOnInit() {
+    this.clienteService.ClienteData$.subscribe((response) => {
+      if(response){
+        this.dadosCliente = response.clienteAtivos
+      }
+    })
     this.licencaService.licencaData$.subscribe((response) => {
       if (response) {
         this.dados = response.licencaAtiva

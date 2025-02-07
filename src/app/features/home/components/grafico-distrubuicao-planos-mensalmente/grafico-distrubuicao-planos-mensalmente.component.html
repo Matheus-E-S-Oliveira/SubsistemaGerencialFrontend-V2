@@ -1,3 +1,8 @@
 <div class="container-grafico">
-    <p-chart type="pie" [data]="data" [options]="options" height="20rem" />
+    <span class="title-custom">Distribuição de Planos nos Últimos 12 Meses
+        <mat-icon class="icon-info"
+            matTooltip="Exibe a distribuição dos planos adquiridos ao longo dos últimos 12 meses, mês a mês."
+            matTooltipShowDelay="500" matTooltipHideDelay="300" matTooltipPosition="above">info</mat-icon>
+    </span>
+    <p-chart type="line" [data]="data" [options]="options" height="20rem" class="grafico" />
 </div>

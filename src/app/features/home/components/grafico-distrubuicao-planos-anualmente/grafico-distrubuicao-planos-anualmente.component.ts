@@ -139,6 +139,17 @@ export class GraficoDistrubuicaoPlanosAnualmenteComponent {
           legend: {
             labels: {
               color: textColor
+            },
+            onHover: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: { chart: any; }) {
+              const chart = legend.chart;
+              const tooltip = chart.tooltip;
+      
+              if (legendItem) {
+                event.native.target.style.cursor = 'pointer';
+              }
+            },
+            onLeave: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: any) {
+              event.native.target.style.cursor = 'default';
             }
           }
         },

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { DadosGerais } from "../../core/apis/models/dto-models/dto-models.api.service";
-import { BehaviorSubject, firstValueFrom, ReplaySubject, shareReplay } from "rxjs";
+import { firstValueFrom, ReplaySubject, shareReplay } from "rxjs";
 import { DashboardApiService } from "../../core/apis/endpoints/dashboard/dashboard.api.service";
 
 @Injectable({

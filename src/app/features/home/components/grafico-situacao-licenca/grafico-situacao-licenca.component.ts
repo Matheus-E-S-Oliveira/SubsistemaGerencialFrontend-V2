@@ -4,13 +4,13 @@ import { LicencaApiService } from '../../../../core/apis/endpoints/liencas/licen
 import { take } from 'rxjs';
 
 @Component({
-  selector: 'app-grafico-situacao-cliente',
+  selector: 'app-grafico-situacao-licenca',
   standalone: false,
 
-  templateUrl: './grafico-situacao-cliente.component.html',
-  styleUrl: './grafico-situacao-cliente.component.scss'
+  templateUrl: './grafico-situacao-licenca.component.html',
+  styleUrl: './grafico-situacao-licenca.component.scss'
 })
-export class GraficoSituacaoClienteComponent {
+export class GraficoSituacaolicencaComponent {
   data: any;
 
   options: any;
@@ -32,7 +32,7 @@ export class GraficoSituacaoClienteComponent {
       .pipe(take(1))
       .subscribe((response) => {
         this.label = Object.keys(response);
-        this.dados = Object.values(response).map(v => Number(v));
+        this.dados = [response.licencaIndefinido, response.licencaAtiva, response.licencaExpirado, response.licencaSuspenco]
         this.initChart();
       })
   }
@@ -69,6 +69,17 @@ export class GraficoSituacaoClienteComponent {
             labels: {
               usePointStyle: true,
               color: textColor
+            },
+            onHover: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: { chart: any; }) {
+              const chart = legend.chart;
+              const tooltip = chart.tooltip;
+      
+              if (legendItem) {
+                event.native.target.style.cursor = 'pointer';
+              }
+            },
+            onLeave: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: any) {
+              event.native.target.style.cursor = 'default';
             }
           }
         }

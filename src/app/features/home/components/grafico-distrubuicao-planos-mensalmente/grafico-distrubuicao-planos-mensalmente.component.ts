@@ -28,9 +28,8 @@ export class GraficoDistrubuicaoPlanosMensalmenteComponent {
 
   getDistruibuicaoPlanosMensal() {
     this.receitaService.receitaData$.subscribe((response) => {
-      console.log(response)
       if (response) {
-        this.label = Object.keys(response.licencasCompradasPorMes)
+        this.label = Object.keys(response.licencasCompradasPorMes);
         const licencasPorMes = response.licencasCompradasPorMes;
 
         this.label.forEach((mesAno: string) => {
@@ -41,16 +40,12 @@ export class GraficoDistrubuicaoPlanosMensalmenteComponent {
             const statusLicenca = Number(key);
             const valor = licencasMes[statusLicenca];
 
-            if (statusLicenca === 0) {
-              this.Indefinido.push(valor);
-            } else if (statusLicenca === 1) {
-              this.Mensal.push(valor);
-            } else if (statusLicenca === 2) {
-              this.Anual.push(valor);
-            } else if (statusLicenca === 3) {
-              this.Gratuito.push(valor);
-            } else if (statusLicenca === 4) {
-              this.Teste.push(valor);
+            switch (statusLicenca) {
+              case 0: this.Indefinido.push(valor); break;
+              case 1: this.Mensal.push(valor); break;
+              case 2: this.Anual.push(valor); break;
+              case 3: this.Gratuito.push(valor); break;
+              case 4: this.Teste.push(valor); break;
             }
             totalMes += valor;
           });
@@ -59,6 +54,7 @@ export class GraficoDistrubuicaoPlanosMensalmenteComponent {
       }
       this.initChart();
     })
+
   }
 
   initChart() {
@@ -134,6 +130,17 @@ export class GraficoDistrubuicaoPlanosMensalmenteComponent {
           legend: {
             labels: {
               color: textColor
+            },
+            onHover: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: { chart: any; }) {
+              const chart = legend.chart;
+              const tooltip = chart.tooltip;
+      
+              if (legendItem) {
+                event.native.target.style.cursor = 'pointer';
+              }
+            },
+            onLeave: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: any) {
+              event.native.target.style.cursor = 'default';
             }
           }
         },

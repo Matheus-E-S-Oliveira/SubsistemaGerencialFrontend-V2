@@ -26,7 +26,9 @@ export class GraficoDistrubuicaoClientesFormaPagamentoComponent {
     this.dashboardApiService.getDistribuicaoFP()
       .pipe(take(1))
       .subscribe((response) => {
-        this.dados = Object.values(response).map(v => Number(v));
+        this.dados = [response.formaPagamentoIndefinido, response.formaPagamentoDinheiro, response.formaPagamentoCartaoCredito,
+          response.formaPagamentoPix, response.formaPagamentoBoleto
+        ]
         this.initChart();
       })
   }
@@ -64,6 +66,17 @@ export class GraficoDistrubuicaoClientesFormaPagamentoComponent {
             labels: {
               usePointStyle: true,
               color: textColor
+            },
+            onHover: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: { chart: any; }) {
+              const chart = legend.chart;
+              const tooltip = chart.tooltip;
+      
+              if (legendItem) {
+                event.native.target.style.cursor = 'pointer';
+              }
+            },
+            onLeave: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: any) {
+              event.native.target.style.cursor = 'default';
             }
           }
         }

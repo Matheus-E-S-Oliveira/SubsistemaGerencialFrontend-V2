@@ -26,7 +26,7 @@ export class GraficoDistrubuicaoClientePlanosComponent {
     this.distribuicaoPlanosApiService.getDados()
       .pipe(take(1))
       .subscribe((response) => {
-        this.dados = Object.values(response).map(v => Number(v));
+        this.dados = [response.planoIndefinido, response.planoMensal, response.planoAnual, response.planoGratuito, response.planoTeste]
         this.initChart();
       })
   }
@@ -64,6 +64,17 @@ export class GraficoDistrubuicaoClientePlanosComponent {
             labels: {
               usePointStyle: true,
               color: textColor
+            },
+            onHover: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: { chart: any; }) {
+              const chart = legend.chart;
+              const tooltip = chart.tooltip;
+      
+              if (legendItem) {
+                event.native.target.style.cursor = 'pointer';
+              }
+            },
+            onLeave: function(event: { native: { target: { style: { cursor: string; }; }; }; }, legendItem: any, legend: any) {
+              event.native.target.style.cursor = 'default';
             }
           }
         }

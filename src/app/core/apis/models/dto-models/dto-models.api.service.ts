@@ -61,6 +61,10 @@ export interface DadosGerais {
 }
 
 export interface LicencasStatus {
+    totalLicencaIndefinido: number
+    totalLicencaAtiva: number;
+    totalLicencaExpirado: number;
+    totalLicencaSuspenco: number;
     licencaIndefinido: number;
     licencaAtiva: number;
     licencaExpirado: number;
@@ -73,15 +77,50 @@ export interface DistribuicaoPorPlanos {
     planoAnual: number,
     planoGratuito: number,
     planoTeste: number
+    totalPlanoIndefinido: number;
+    totalPlanoMensal: number;
+    totalPlanoAnual: number;
+    totalPlanoGratuito: number;
+    totalPlanoTeste: number;
 }
+
 export interface DistrbuicaoDePlanosAnual {
     licencasPorAno: Record<string, Record<number, number>>;
 }
 
 export interface DistribuicaoClinetesPorFormaPagamento {
-  formaPagamentoIndefinido: number;
-  formaPagamentoDinheiro: number;
-  formaPagamentoCartaoCredito: number;
-  formaPagamentoPix: number;
-  formaPagamentoBoleto: number;
+    formaPagamentoIndefinido: number;
+    formaPagamentoDinheiro: number;
+    formaPagamentoCartaoCredito: number;
+    formaPagamentoPix: number;
+    formaPagamentoBoleto: number;
+    totalFormaPagamentoIndefinido: number;
+    totalFormaPagamentoDinheiro: number;
+    totalFormaPagamentoCartaoCredito: number;
+    totalFormaPagamentoPix: number;
+    totalFormaPagamentoBoleto: number;
+}
+
+export interface DadosDiversos {
+    boletosEmitidosEsteMes: number;
+    faturaPertoDoVencimento: number;
+    faturaVencidas: number;
+    licencaVencida: number;
+    licencaPertoDeVencer: number;
+}
+
+export interface Clientes {
+    clienteAtivos: number;
+    clienteInativos: number;
+    clienteInderteminados: number;
+}
+
+export interface Contrato {
+    assindo: number;
+    nAssinado: number;
+    indefinido: number;
+    ativo: number;
+    inativo: number;
+    gratuito: number;
+    teste: number;
 }

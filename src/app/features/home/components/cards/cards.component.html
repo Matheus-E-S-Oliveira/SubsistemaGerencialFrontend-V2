@@ -1,13 +1,65 @@
-<app-card title="Licenças Ativas:" [number]="ativos" ></app-card>
-<app-card title="Licenças Expiradas:" [number]="expirados" ></app-card>
-<app-card title="Total de Licenças:" [number]="total" ></app-card>
-<app-card title="Licenças Compradas Em 2025:" [number]="10" ></app-card>
-<app-card title="Total Recebido no Mês" 
-[number]="receitaUltimoMes | currency:'BRL':'symbol':'1.2-2'" 
-customClass="card-content-custom"></app-card>
-<app-card title="Pendências do Último Mês:" 
-[number]="dividaPenultimoMes | currency:'BRL':'symbol':'1.2-2'" 
-customClass="card-content-custom"></app-card>
-<app-card title="Boletos Emitidos Este Mês:" [number]="10" ></app-card>
-<app-card title="Licenças Perto do Vencimento:" [number]="10" ></app-card>
-<!-- <app-card title="Licenças Expiradas:" [number]="10" ></app-card> -->
+<app-card titulo="Licenças Ativas:" 
+          [number]="dadosLicenca?.licencaAtiva" 
+          [tooltipText]="'Quantidade de licenças ativas no momento'"></app-card>
+
+<app-card titulo="Licenças Expiradas:" 
+          [number]="dadosLicenca?.licencaExpirado" 
+          [tooltipText]="'Número de licenças que já expiraram e não foram renovadas'"></app-card>
+
+<app-card titulo="Licenças Suspensas" 
+          [number]="dadosLicenca?.totalLicencaSuspenco" 
+          [tooltipText]="'Licenças que estão suspensas temporariamente, aguardando resolução'"></app-card>
+
+<app-card titulo="Total de Licenças:" 
+          [number]="total" 
+          [tooltipText]="'Total de licenças, incluindo ativas, expiradas e suspensas'"></app-card>
+
+<app-card titulo="Clientes Ativos:" 
+          [number]="dadosCliente?.clienteAtivos" 
+          [tooltipText]="'Quantidade de clientes que estão com contas ativas'"></app-card>
+
+<app-card titulo="Clientes Inativos:" 
+          [number]="dadosCliente?.clienteInativos" 
+          [tooltipText]="'Quantidade de clientes que não estão mais ativos, mas podem ser reativados'"></app-card>
+
+<app-card titulo="Clientes Inderteminados" 
+          [number]="dadosCliente?.clienteInderteminados" 
+          [tooltipText]="'Clientes cujas informações de status não foram definidas corretamente'"></app-card>
+
+<app-card titulo="Total de Clientes:" 
+          [number]="clienteTotal" 
+          [tooltipText]="'Número total de clientes cadastrados no sistema'"></app-card>
+
+<app-card [titulo]="title" 
+          [number]="compradosEsteAno" 
+          [tooltipText]="'Número de licenças compradas no ano corrente'"></app-card>
+
+<app-card titulo="Receita do Mês:" 
+          [number]="receitaUltimoMes | currency:'BRL':'symbol':'1.2-2'" 
+          customClass="card-content-custom" 
+          [tooltipText]="'Valor total da receita gerada no último mês'"></app-card>
+
+<app-card titulo="Pendências do Mês Passado:" 
+          [number]="dividaPenultimoMes | currency:'BRL':'symbol':'1.2-2'" 
+          customClass="card-content-custom" 
+          [tooltipText]="'Valor das pendências que não foram resolvidas no mês anterior'"></app-card>
+
+<app-card titulo="Boletos Emitidos:" 
+          [number]="dadoGerais?.boletosEmitidosEsteMes" 
+          [tooltipText]="'Quantidade de boletos emitidos neste mês'"></app-card>
+
+<app-card titulo="Licenças a Vencer:" 
+          [number]="dadoGerais?.licencaPertoDeVencer" 
+          [tooltipText]="'Número de licenças que estão perto de vencer'"></app-card>
+
+<app-card titulo="Expiradas Recentemente:" 
+          [number]="dadoGerais?.licencaVencida" 
+          [tooltipText]="'Licenças que expiraram recentemente, com prazo vencido'"></app-card>
+
+<app-card titulo="Faturas a Vencer:" 
+          [number]="dadoGerais?.faturaPertoDoVencimento" 
+          [tooltipText]="'Faturas que estão prestes a vencer no próximo período'"></app-card>
+
+<app-card titulo="Recentemente Vencidas:" 
+          [number]="dadoGerais?.faturaVencidas" 
+          [tooltipText]="'Faturas que passaram do prazo de vencimento recentemente'"></app-card>

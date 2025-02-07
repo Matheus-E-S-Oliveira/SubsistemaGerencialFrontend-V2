@@ -1,6 +1,10 @@
 <article class="container-card">
     <div class="card">
-        <p class="card-title">{{title}}</p>
+        <p class="card-title">{{titulo}} 
+           <mat-icon class="icon-info"matTooltip="{{ tooltipText }}" matTooltipShowDelay="500" matTooltipHideDelay="300"
+           matTooltipPosition="above"
+           >info</mat-icon>
+        </p>
         <p [ngClass]="customClass">{{number}}</p>
     </div>
 </article>

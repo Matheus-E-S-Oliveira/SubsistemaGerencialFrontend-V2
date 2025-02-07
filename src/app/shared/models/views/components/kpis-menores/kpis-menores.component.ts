@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './kpis-menores.component.scss'
 })
 export class KpisMenoresComponent {
-@Input() title!: string
+@Input() titulo!: string
 @Input() number!: number
+@Input() tooltipText: string = 'teste';
 }

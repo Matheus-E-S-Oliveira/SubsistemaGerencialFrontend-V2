@@ -1,3 +1,8 @@
 <div class="container-grafico">
+    <span class="title-custom"> Distribuição de Planos nos Últimos 6 Anos
+        <mat-icon class="icon-info"
+            matTooltip="Mostra a distribuição dos planos adquiridos ao longo dos últimos 6 anos, um ano por vez."
+            matTooltipShowDelay="500" matTooltipHideDelay="300" matTooltipPosition="above">info</mat-icon>
+    </span>
     <p-chart type="line" [data]="data" [options]="options" height="20rem" class="grafico" />
 </div>

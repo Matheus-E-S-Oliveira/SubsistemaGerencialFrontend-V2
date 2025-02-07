@@ -6,6 +6,7 @@
 @use '../src/app//shared//styles/styles-carrocel.scss' as *;
 @use '../src/app/shared/styles/styles-cards.scss' as *;
 @use '../src/app/shared/styles/styles-graficos.scss' as *;
+@use '../src/app//shared//styles/styles-mat-tooltip.scss' as *;
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
@@ -26,4 +27,8 @@ app-card{
 app-kpis, app-kpis-menores, app-kpis-maiores, app-grafico-finaceiro{
     flex-grow: 1;
     display: flex;
+}
+
+app-painel{
+    flex-grow: 1;
 }
