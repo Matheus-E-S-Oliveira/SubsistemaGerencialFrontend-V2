@@ -1,0 +1,25 @@
+.link-table-item-custom {
+    display: flex;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #d4f4dd;
+    }
+
+    &:active {
+        background-color: #98FF98;
+    }
+
+    &:hover .link-table-icon {
+        color: #f10f0f;
+    }
+
+    &:active .link-table-icon {
+        color: #fff;
+    }
+}

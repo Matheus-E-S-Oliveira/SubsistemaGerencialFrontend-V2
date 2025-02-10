@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BaseApiService } from "../../base.api.service";
-import { FazendaDto } from "../../models/dto-models/dto-models.api.service";
+import { FazendaComEnderecoDto, FazendaDto } from "../../models/dto-models/dto-models.api.service";
 import { PaginationResult } from "../../models/response-models/response-models.api.service";
 import { Observable } from "rxjs";
 
@@ -17,5 +17,8 @@ export class FazendaApiService extends BaseApiService{
         filters?: { [key: string]: any }
     ): Observable<PaginationResult<FazendaDto>> {
         return this.getList<FazendaDto>(this.endpoint, pageNumber, pageSize, filters);
+    }
+    getFazendaById(id: string, pageNumber: number= 1, pageSize: number = 10): Observable<PaginationResult<FazendaComEnderecoDto>> {
+        return this.getById<FazendaComEnderecoDto>(id,this.endpoint, pageNumber, pageSize)
     }
 }

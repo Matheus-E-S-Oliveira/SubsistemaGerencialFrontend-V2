@@ -1,14 +1,14 @@
 <section class="Kpis">
     <div class="kpis-menores">
-        <app-kpis-menores titulo="Clientes Ativos:" [number]="dadosCliente"
+        <app-kpis-menores titulo="Clientes Ativos" [number]="dadosCliente"
         [tooltipText]="'Número total de clientes ativos no sistema atualmente.'"></app-kpis-menores>
-        <app-kpis-menores titulo="Licenças Ativas:" [number]="dados"
+        <app-kpis-menores titulo="Licenças Ativas" [number]="dados"
         [tooltipText]="'Quantidade de licenças que estão em uso e dentro do período de validade.'"></app-kpis-menores>
     </div>
     <div class="kpis-maiores">
-        <app-kpis-maiores titulo="Receita Acumulada dos Últimos 12 Meses:" [number]="receitaAcumulada" cor="#27AE60"
+        <app-kpis-maiores titulo="Receita Acumulada dos Últimos 12 Meses" [number]="receitaAcumulada" cor="#27AE60"
         [tooltipText]="'Total de receita gerada nos últimos 12 meses, considerando todas as transações realizadas.'"></app-kpis-maiores>
-        <app-kpis-maiores titulo="Dívida Acumulada nos Últimos 12 Meses:" [number]="lastValue" cor="#E74C3C"
+        <app-kpis-maiores titulo="Dívida Acumulada nos Últimos 12 Meses" [number]="lastValue" cor="#E74C3C"
         [tooltipText]="'Valor total pendente de pagamento nos últimos 12 meses, considerando faturas em atraso.'"></app-kpis-maiores>
     </div>
 </section>

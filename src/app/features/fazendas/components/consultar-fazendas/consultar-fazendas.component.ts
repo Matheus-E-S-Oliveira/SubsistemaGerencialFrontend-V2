@@ -18,7 +18,7 @@ import { debounceTime, take } from 'rxjs';
 export class ConsultarFazendasComponent implements OnInit {
 
   constructor(public context: ConsultaFazendaContext, private fazendaApiservice: FazendaApiService) { }
-  displayedColumns: string[] = ['codigoFazenda','nome', 'dataCriacaoFazenda', 'quantidadeAnimais'];
+  displayedColumns: string[] = ['codigoFazenda','nome', 'dataCriacaoFazenda', 'quantidadeAnimais', 'acoes'];
   public Grid =  GridConfig.defaultGrid<FazendaDto>();
 
   ngOnInit(): void {

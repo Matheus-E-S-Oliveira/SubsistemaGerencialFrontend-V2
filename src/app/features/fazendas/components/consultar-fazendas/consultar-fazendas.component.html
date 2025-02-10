@@ -46,6 +46,15 @@
             <td mat-cell *matCellDef="let fazenda"> {{fazenda.quantidadeAnimais | nullEmptyCheck }} </td>
         </ng-container>
 
+        <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let fazenda">
+              <a class="link-table-item" routerLink='detalhes/{{fazenda.id}}'>
+                <mat-icon class="link-table-icon">open_in_new</mat-icon>
+              </a>
+            </td>
+          </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

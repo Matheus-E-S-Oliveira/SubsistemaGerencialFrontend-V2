@@ -36,6 +36,38 @@ export interface FazendaDto {
     dataCriacaoFazenda: Date;
     quantidadeAnimais: number;
 }
+export interface EnderecoFazenda {
+    id: string;
+    fazendaId: string;
+    comercialUf: string | null;
+    comercialCidade: string | null;
+    comercialCep: string | null;
+    comercialRua: string | null;
+    comercialBairro: string | null;
+    comercialNumero: string | null;
+    comercialComplemento: string | null;
+    faturaUf: string | null;
+    faturaCidade: string | null;
+    faturaCep: string | null;
+    faturaRua: string | null;
+    faturaBairro: string | null;
+    faturaNumero: string | null;
+    faturaComplemento: string | null;
+    fazenda: any | null;  // Se você tiver uma estrutura para a fazenda, substitua o 'any' por ela
+    dataCriacao: string;
+    dataAtualizacao: string;
+}
+
+export interface FazendaComEnderecoDto {
+    id: string;
+    clienteId: string;
+    nome: string;
+    nomeCliente: string;
+    codigoFazenda: string;
+    dataCriacaoFazenda: string;
+    quantidadeAnimais: number;
+    enderecoFazendas: EnderecoFazenda[];
+}
 
 export interface ClienteContratoDto {
     id: string;
@@ -123,4 +155,22 @@ export interface Contrato {
     inativo: number;
     gratuito: number;
     teste: number;
+}
+
+export interface BoletoDto {
+    id: string;
+    pagamentoId: string;
+    nome: string;
+    cpf: string;
+    nossoNumero: string;
+    seuNumero: string;
+    dataEntrada: Date;
+    dataVencimento: Date;
+    dataLimitePagamento: Date
+    valorMora: number;
+    valorDesconto: number;
+    valorAcrescimos: number;
+    valor: number;
+    valorCobrado: number;
+    statusPagamento: number;
 }

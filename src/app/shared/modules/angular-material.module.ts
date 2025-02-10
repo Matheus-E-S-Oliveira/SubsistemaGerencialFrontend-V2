@@ -9,7 +9,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+
+import * as _moment from 'moment';
+import { default as _rollupMoment, Moment } from 'moment';
+import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 
 import { provideNgxMask } from 'ngx-mask';
 import { BaseChartDirective } from 'ng2-charts';
@@ -34,7 +39,8 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatSelectModule,
     BaseChartDirective,
     ChartModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDatepickerModule,
   ],
   exports: [
     MatIconModule,
@@ -47,7 +53,8 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     MatSelectModule,
     BaseChartDirective,
     ChartModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDatepickerModule
   ],
   providers: [
     provideNgxMask(),
@@ -83,3 +90,16 @@ export function CustomPaginator() {
   };
   return customPaginatorIntl;
 }
+const moment = _rollupMoment || _moment;
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'MM/YYYY',
+  },
+  display: {
+    dateInput: 'MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};

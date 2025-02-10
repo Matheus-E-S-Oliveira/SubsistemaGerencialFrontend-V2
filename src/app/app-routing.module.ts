@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./features/clientes-contratos/clientes-contratos.module').then(m => m.ClientesContratosModule)
   },
   {
+    path: 'boletos',
+    loadChildren: () => import('./features/boletos/boletos.module').then(m => m.BoletosModule)
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'

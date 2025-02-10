@@ -20,7 +20,7 @@ export class CardsComponent {
   dividaUltimoMes!: number | null;
   dividaPenultimoMes!: number | null;
   compradosEsteAno!: number;
-  title = `Licenças Compradas ${new Date().getFullYear()}:`
+  title = `Licenças Compradas ${new Date().getFullYear()}`
   dadoGerais: any;
   dadosCliente: any;
   clienteTotal!: number;

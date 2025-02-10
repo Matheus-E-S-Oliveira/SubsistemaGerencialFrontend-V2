@@ -9,6 +9,8 @@ import { SituacaoContratoPipes } from "../pipes/situacao-contrato.pipe";
 import { FormatacaoCepPipe } from "../pipes/formatar-cep.pipe";
 import { DynamicPipe } from "../pipes/dynamic.pipe";
 import { CurrencyNumberPipe } from "../pipes/currency-number.pipe";
+import { StatusPagamento } from "../constants/status-pagamento";
+import { StatusPagamentoPipe } from "../pipes/status-pagamento.pipe";
 
 @NgModule({
     declarations: [
@@ -19,7 +21,8 @@ import { CurrencyNumberPipe } from "../pipes/currency-number.pipe";
         SituacaoContratoPipes,
         FormatacaoCepPipe,
         DynamicPipe,
-        CurrencyNumberPipe
+        CurrencyNumberPipe,
+        StatusPagamentoPipe
     ],
     imports: [
         CommonModule
@@ -32,7 +35,8 @@ import { CurrencyNumberPipe } from "../pipes/currency-number.pipe";
         SituacaoContratoPipes,
         FormatacaoCepPipe,
         DynamicPipe,
-        CurrencyNumberPipe
+        CurrencyNumberPipe,
+        StatusPagamentoPipe
         
     ]
 })

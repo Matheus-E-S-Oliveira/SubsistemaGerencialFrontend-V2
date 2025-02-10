@@ -6,11 +6,14 @@ import { ConsultarFazendasComponent } from './components/consultar-fazendas/cons
 import { AngularMaterialModule } from '../../shared/modules/angular-material.module';
 import { PipeModule } from '../../shared/modules/pipe.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FazendaInformacaoComponent } from './components/fazenda-informacao/fazenda-informacao.component';
+import { ModelComponentsModule } from '../../shared/models/views/model-components.module';
 
 
 @NgModule({
   declarations: [
-    ConsultarFazendasComponent
+    ConsultarFazendasComponent,
+    FazendaInformacaoComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FazendasRoutingModule,
     AngularMaterialModule,
     PipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModelComponentsModule
   ]
 })
 export class FazendasModule { }

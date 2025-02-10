@@ -1,0 +1,235 @@
+<section class="container-btn-link-page-anterior">
+    <a class="btn-link-page-anterior" [routerLink]="['/fazendas']" matRipple matRippleColor="#f3f3f3">
+        <span class="btn-link-page-anterior-content">Voltar</span>
+    </a>
+</section>
+<section *ngFor="let item of Grid.PaginationResult.items" class="container-page">
+    <section class="container-dados" style="border-radius: 15px; padding-top: 0;">
+        <span class="title">Dados da Fazenda:</span>
+        <div class="container">
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Codigo Fazenda:</strong>
+                    <span *ngIf="!item.codigoFazenda" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{ item.codigoFazenda | nullEmptyCheck }}</span>
+                </p>
+            </div>
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Nome da Fazenda</strong>
+                    <span *ngIf="!item.nome" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{item.nome | nullEmptyCheck }}</span>
+                </p>
+            </div>
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Nome do Propietario:
+                        <a class="link-table-item-custom" [routerLink]="['/clientes/detalhes', item.clienteId]"
+                        matTooltip="Ir para os detalhes do cliente" matTooltipPosition="above" matTooltipShowDelay="300">
+                            <mat-icon class="link-table-icon">open_in_new</mat-icon>
+                        </a>
+                    </strong>
+                    <span *ngIf="!item.nomeCliente" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{ item.nomeCliente| nullEmptyCheck }}</span>
+                    
+                </p>
+            </div>
+
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Data Criação:</strong>
+                    <span *ngIf="!item.dataCriacaoFazenda" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{item.dataCriacaoFazenda | nullEmptyCheck | date:'dd/MM/yyyy' }}</span>
+                </p>
+            </div>
+            <div class="campo">
+                <p class="campo-content">
+                    <strong class="campo-label">Quantidade de Animais</strong>
+                    <span *ngIf="!item.quantidadeAnimais" class="icons-warning">
+                        <mat-icon>warning</mat-icon>
+                    </span>
+                    <span class="dados-cliente">{{item.quantidadeAnimais | nullEmptyCheck}}</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section style="box-sizing: border-box; width: 100%;">
+        <div class="container-title-carrocel">
+            <span class="title">Endereço Comercial:</span>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-items" #carouselItemsEnderecos>
+                    <section class="container-dados" *ngFor="let endereco of item.enderecoFazendas"
+                        [ngClass]="{'classe-aplicada': item.enderecoFazendas.length > 1}">
+                        <div class="container">
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">UF da Fazenda:</strong>
+                                    <span *ngIf="!endereco.comercialUf" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.comercialUf | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Cidade do Fazenda:</strong>
+                                    <span *ngIf="!endereco.comercialCidade" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.comercialCidade | nullEmptyCheck }}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">CEP da Fazenda:</strong>
+                                    <span *ngIf="!endereco.comercialCep" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{ endereco.comercialCep | nullEmptyCheck |
+                                        formatarCep}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Rua da Fazenda:</strong>
+                                    <span *ngIf="!endereco.comercialRua" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.comercialRua| nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Bairro da Fazenda:</strong>
+                                    <span *ngIf="!endereco.comercialBairro" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.comercialBairro| nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Numero da Fazenda:</strong>
+                                    <span *ngIf="!endereco.comercialNumero" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.comercialNumero | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Complemento da Fazenda:</strong>
+                                    <span *ngIf="!endereco.comercialComplemento" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.comercialComplemento |
+                                        nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="container-paginator">
+            <app-paginator-carrocel [carouselItems]="carouselItemsEnderecos" [item]="item.enderecoFazendas.length"
+                title="Endereço">
+            </app-paginator-carrocel>
+        </div>
+    </section>
+    <section style="box-sizing: border-box; width: 100%;">
+        <div class="container-title-carrocel">
+            <span class="title">Endereço de Fatura:</span>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-items" #carouselItemsFazendas>
+                    <section class="container-dados" *ngFor="let endereco of item.enderecoFazendas"
+                        [ngClass]="{'classe-aplicada': item.enderecoFazendas.length > 1}">
+                        <div class="container">
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">UF da Fazenda:</strong>
+                                    <span *ngIf="!endereco.faturaUf" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.faturaUf | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Cidade do Fazenda:</strong>
+                                    <span *ngIf="!endereco.faturaCidade" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.faturaCidade | nullEmptyCheck }}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">CEP da Fazenda:</strong>
+                                    <span *ngIf="!endereco.faturaCep" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{ endereco.faturaCep | nullEmptyCheck |
+                                        formatarCep}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Rua da Fazenda:</strong>
+                                    <span *ngIf="!endereco.faturaRua" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.faturaRua| nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Bairro da Fazenda:</strong>
+                                    <span *ngIf="!endereco.faturaBairro" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.faturaBairro| nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Numero da Fazenda:</strong>
+                                    <span *ngIf="!endereco.faturaNumero" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.faturaNumero | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Complemento da Fazenda:</strong>
+                                    <span *ngIf="!endereco.faturaComplemento" class="icons-warning">
+                                        <mat-icon>warning</mat-icon>
+                                    </span>
+                                    <span class="dados-cliente">{{endereco.faturaComplemento | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="container-paginator">
+            <app-paginator-carrocel [carouselItems]="carouselItemsFazendas" [item]="item.enderecoFazendas.length"
+                title="Endereço">
+            </app-paginator-carrocel>
+        </div>
+    </section>
+</section>

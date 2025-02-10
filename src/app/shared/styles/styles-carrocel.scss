@@ -57,6 +57,9 @@
 .campo-label {
     color: #4a3c3c;
     width: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
 }
 
 .icons-warning {
@@ -81,9 +84,6 @@
     flex-grow: 1;
     display: flex;
 }
-
-
-
 
 .container-title-carrocel {
     background-color: #fff;

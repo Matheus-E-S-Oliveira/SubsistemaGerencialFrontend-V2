@@ -63,7 +63,7 @@
             <div class="carousel-wrapper">
                 <div class="carousel-items" #carouselItemsEnderecos>
                     <section class="container-dados" *ngFor="let endereco of item.enderecos"
-                    [ngClass]="{'classe-aplicada': item.enderecos.length > 1}" >
+                        [ngClass]="{'classe-aplicada': item.enderecos.length > 1}">
                         <div class="container">
                             <div class="campo">
                                 <p class="campo-content">
@@ -147,7 +147,7 @@
             <div class="carousel-wrapper">
                 <div class="carousel-items" #carouselItemsFazendas>
                     <section class="container-dados" *ngFor="let fazenda of item.fazendas"
-                     [ngClass]="{'classe-aplicada': item.fazendas.length > 1}">
+                        [ngClass]="{'classe-aplicada': item.fazendas.length > 1}">
                         <div class="container">
                             <div class="campo">
                                 <p class="campo-content">
@@ -184,6 +184,19 @@
                                         <mat-icon>warning</mat-icon>
                                     </span>
                                     <span class="dados-cliente">{{fazenda.quantidadeAnimais | nullEmptyCheck}}</span>
+                                </p>
+                            </div>
+                            <div class="campo">
+                                <p class="campo-content">
+                                    <strong class="campo-label">Endereço:</strong>
+                                    <span class="dados-cliente">
+                                        <a class="link-table-item-custom"
+                                            [routerLink]="['/fazendas/detalhes', fazenda.id]"
+                                            matTooltip="Ir para os detalhes da fazenda" matTooltipPosition="above"
+                                            matTooltipShowDelay="300">
+                                            <mat-icon class="link-table-icon">open_in_new</mat-icon>
+                                        </a>
+                                    </span>
                                 </p>
                             </div>
                         </div>
