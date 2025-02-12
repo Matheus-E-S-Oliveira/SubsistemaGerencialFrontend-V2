@@ -1,0 +1,6 @@
+<mat-tab-group [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Boletos Vencidos"></mat-tab>
+    <mat-tab label="Boletos Vencendo"></mat-tab>
+</mat-tab-group>
+
+<router-outlet></router-outlet>

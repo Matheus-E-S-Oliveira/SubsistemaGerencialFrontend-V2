@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./features/boletos/boletos.module').then(m => m.BoletosModule)
   },
   {
+    path: 'licencas',
+    loadChildren: () => import('./features/licencas/licencas.module').then(m => m.LicencasModule)
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'

@@ -46,20 +46,30 @@
 
 <app-card titulo="Boletos Emitidos" 
           [number]="dadoGerais?.boletosEmitidosEsteMes" 
+          [rota]="'boletos/consulta'"
+          [tooltipTextLink]="'Abrir lista de boletos'"
           [tooltipText]="'Quantidade de boletos emitidos neste mês'"></app-card>
 
 <app-card titulo="Licenças a Vencer" 
-          [number]="dadoGerais?.licencaPertoDeVencer" 
+          [number]="dadoGerais?.licencaPertoDeVencer"
+          [rota]="'licencas/vencendo'"
+          [tooltipTextLink]="'Abrir lista de licenças vencendo'" 
           [tooltipText]="'Número de licenças que estão perto de vencer'"></app-card>
 
 <app-card titulo="Expiradas Recentemente" 
-          [number]="dadoGerais?.licencaVencida" 
+          [number]="dadoGerais?.licencaVencida"
+          [rota]="'licencas/vencidas'"
+          [tooltipTextLink]="'Abrir lista de licenças vencidas'" 
           [tooltipText]="'Licenças que expiraram recentemente, com prazo vencido'"></app-card>
 
 <app-card titulo="Faturas a Vencer" 
-          [number]="dadoGerais?.faturaPertoDoVencimento" 
+          [number]="dadoGerais?.faturaPertoDoVencimento"
+          [rota]="'boletos/vencendo'"
+          [tooltipTextLink]="'Abrir lista de boletos vencendo'"  
           [tooltipText]="'Faturas que estão prestes a vencer no próximo período'"></app-card>
 
 <app-card titulo="Recentemente Vencidas" 
-          [number]="dadoGerais?.faturaVencidas" 
+          [number]="dadoGerais?.faturaVencidas"
+          [rota]="'boletos/vencidos'"
+          [tooltipTextLink]="'Abrir lista de boletos vencidos'"  
           [tooltipText]="'Faturas que passaram do prazo de vencimento recentemente'"></app-card>

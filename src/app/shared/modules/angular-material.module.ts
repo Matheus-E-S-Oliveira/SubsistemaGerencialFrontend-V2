@@ -2,6 +2,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 
 import { MatIconModule } from '@angular/material/icon';
+import { matTabsAnimations, MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
@@ -41,6 +42,7 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     ChartModule,
     MatTooltipModule,
     MatDatepickerModule,
+    MatTabsModule,
   ],
   exports: [
     MatIconModule,
@@ -54,7 +56,8 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     BaseChartDirective,
     ChartModule,
     MatTooltipModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTabsModule,
   ],
   providers: [
     provideNgxMask(),

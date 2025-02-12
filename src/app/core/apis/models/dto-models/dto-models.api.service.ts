@@ -174,3 +174,17 @@ export interface BoletoDto {
     valorCobrado: number;
     statusPagamento: number;
 }
+
+export interface LicencaDto {
+    id: string;
+    clienteId: string;
+    nomeCliente: string;
+    cpfCliente: string;
+    dataInico: Date;
+    dataVencimento: Date;
+    reference: string;
+    plano: number;
+    statusLicenca: number;
+    faturaGerada: boolean;
+  }
+  

@@ -9,29 +9,68 @@
 @use '../src/app//shared//styles/styles-mat-tooltip.scss' as *;
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
 
-app-dashboard{
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-dashboard {
     box-sizing: border-box;
 }
-app-cards{
+
+app-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     flex-grow: 1;
 }
-app-card{
+
+app-card {
     display: flex;
     padding: 5px;
 }
-app-kpis, app-kpis-menores, app-kpis-maiores, app-grafico-finaceiro{
+
+app-kpis,
+app-kpis-menores,
+app-kpis-maiores,
+app-grafico-finaceiro {
     flex-grow: 1;
     display: flex;
 }
 
-app-painel{
+app-painel {
     flex-grow: 1;
 }
-.mat-datepicker-content{
+
+.mat-datepicker-content {
     background-color: #fff !important;
+}
+
+.mat-mdc-tab-label-container {
+    background-color: #fff;
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mat-mdc-tab .mdc-tab__content {
+    position: relative;
+    pointer-events: auto;
+    font-size: medium;
+    color: #424240 !important;
+}
+
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: #606060;
+}
+
+.mat-mdc-tab.mdc-tab--hover .mdc-tab__text-label {
+    color: #303030;
+}
+
+.mat-mdc-tab.mdc-tab .mdc-tab__text-label {
+    color: #424242;
 }

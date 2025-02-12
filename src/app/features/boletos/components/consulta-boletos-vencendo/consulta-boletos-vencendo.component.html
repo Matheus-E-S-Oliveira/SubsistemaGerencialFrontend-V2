@@ -17,18 +17,6 @@
                 <input matInput type="text" formControlName="cpf" mask="000.000.000-00">
             </mat-form-field>
         </section>
-        <section class="filters">
-            <mat-form-field>
-                <mat-label>Selecione o mês</mat-label>
-                <input matInput [matDatepicker]="dp" formControlName="data">
-                <mat-hint>MM/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
-                <mat-datepicker #dp startView="multi-year" (monthSelected)="setMonthAndYear($event, dp)"
-                    panelClass="example-month-picker">
-                </mat-datepicker>
-            </mat-form-field>
-        </section>
-
     </form>
 
     <mat-divider class="separador"></mat-divider>

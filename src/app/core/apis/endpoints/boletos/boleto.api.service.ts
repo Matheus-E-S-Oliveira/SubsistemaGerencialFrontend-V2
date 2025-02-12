@@ -19,4 +19,19 @@ export class BoletoApiService extends BaseApiService {
     ): Observable<PaginationResult<BoletoDto>> {
         return this.getList<BoletoDto>(this.endpoint, pageNumber, pageSize, filters);
     }
+
+    getBoletoVencido(
+        pageNumber: number = 1,
+        pageSize: number = 10,
+        filters?: { [key: string]: any }
+    ): Observable<PaginationResult<BoletoDto>> {
+        return this.getList<BoletoDto>('boleto/vencidos', pageNumber, pageSize, filters);
+    }
+    getBoletoVencendo(
+        pageNumber: number = 1,
+        pageSize: number = 10,
+        filters?: { [key: string]: any }
+    ): Observable<PaginationResult<BoletoDto>> {
+        return this.getList<BoletoDto>('boleto/vencendo', pageNumber, pageSize, filters);
+    }
 }

@@ -11,6 +11,7 @@ import { CardComponent } from './components/card/card.component';
 import { KpisMenoresComponent } from './components/kpis-menores/kpis-menores.component';
 import { KpisMaioresComponent } from './components/kpis-maiores/kpis-maiores.component';
 import { PainelComponent } from './components/painel/painel.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -26,7 +27,8 @@ import { PainelComponent } from './components/painel/painel.component';
     CommonModule,
     PipeModule,
     AngularMaterialModule,
-    NgPipesModule
+    NgPipesModule,
+    RouterModule
   ],
   exports: [
     PaginatorCarrocelComponent,

@@ -1,9 +1,12 @@
 <article class="container-card">
     <div class="card">
-        <p class="card-title">{{titulo}} 
-           <mat-icon class="icon-info"matTooltip="{{ tooltipText }}" matTooltipShowDelay="500" matTooltipHideDelay="300"
-           matTooltipPosition="above"
-           >info</mat-icon>
+        <p class="card-title">{{titulo}}
+            <mat-icon class="icon-info" matTooltip="{{ tooltipText }}" matTooltipShowDelay="500"
+                matTooltipHideDelay="300" matTooltipPosition="above">info</mat-icon>
+            <a *ngIf="rota" class="container-icon" [routerLink]="rota">
+                <mat-icon class="icon-info" matTooltip="{{ tooltipTextLink }}" matTooltipShowDelay="500"
+                    matTooltipHideDelay="300" matTooltipPosition="above">open_in_new</mat-icon>
+            </a>
         </p>
         <p [ngClass]="customClass">{{number}}</p>
     </div>

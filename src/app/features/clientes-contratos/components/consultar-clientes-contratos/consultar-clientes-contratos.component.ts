@@ -26,7 +26,6 @@ export class ConsultarClientesContratosComponent implements OnInit{
   ngOnInit(): void {
     this.context.InitForm(new FormConsultaContrato());
     this.getClienteContrato(this.Grid.PageEvent);
-    console.log(this.context.formConsulta.controls.situacao.value)
 
     this.context.formConsulta.valueChanges.pipe(
       debounceTime(1500)

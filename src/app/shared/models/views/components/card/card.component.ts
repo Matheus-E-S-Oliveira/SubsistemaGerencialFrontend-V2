@@ -12,4 +12,7 @@ export class CardComponent {
   @Input() titulo!: string;
   @Input() number!: number | null | string;
   @Input() customClass: string = 'card-content';
+  @Input() rota: string | null = null;
+  @Input() tooltipTextLink!: string;
+
 }

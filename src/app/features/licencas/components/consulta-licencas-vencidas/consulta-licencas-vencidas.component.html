@@ -1,0 +1,79 @@
+<section class="container-btn-link-page-anterior">
+    <a class="btn-link-page-anterior" [routerLink]="['/home']">
+        <span class="btn-link-page-anterior-content">Voltar</span>
+    </a>
+</section>
+<div #containerTabela class="container-tabela">
+    <form [formGroup]="context.formConsulta" class="container-filters">
+        <section class="filters-custom">
+            <mat-form-field appearance="fill">
+                <mat-label>Buscar pelo nome</mat-label>
+                <input matInput type="text" formControlName="nomeCliente">
+            </mat-form-field>
+        </section>
+        <section class="filters-custom">
+            <mat-form-field appearance="fill">
+                <mat-label>Buscar pelo CPF</mat-label>
+                <input matInput type="text" formControlName="cpfCliente" mask="000.000.000-00">
+            </mat-form-field>
+        </section>
+    </form>
+
+    <mat-divider class="separador"></mat-divider>
+
+    <table mat-table [dataSource]="Grid.PaginationResult.items" matSort>
+
+        <ng-container matColumnDef="nomeCliente">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.nomeCliente | nullEmptyCheck }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cpfCliente">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CPF </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.cpfCliente | nullEmptyCheck | cpfFormat }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataInico">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Data de Início </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.dataInico |  date:'dd/MM/yyyy' | nullEmptyCheck }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataVencimento">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Data de Vencimento </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.dataVencimento |  date:'dd/MM/yyyy' | nullEmptyCheck }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="reference">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Reference </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.reference | nullEmptyCheck }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="plano">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Plano </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.plano | plano }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="statusLicenca">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status da Licença </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.statusLicenca | statusLicenca }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="faturaGerada">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fatura Gerada </th>
+            <td mat-cell *matCellDef="let licenca"> {{ licenca.faturaGerada ? 'Sim' : 'Não' }} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <div class="tabela-vazia" *ngIf="!Grid.PaginationResult.items || Grid.PaginationResult.items.length == 0">
+        <p class="msg-tabela-vazia">Sem resultados para a consulta...</p>
+    </div>
+
+    <mat-paginator [length]="Grid.PaginationResult.totalElements" [pageSize]="Grid.PaginationResult.pageSize"
+        [pageIndex]="Grid.PaginationResult.pageNumber - 1" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+        [showFirstLastButtons]="true" (page)="getLicenca($event)">
+    </mat-paginator>
+
+</div>
